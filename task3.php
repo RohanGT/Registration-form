@@ -5,7 +5,9 @@
 	<title>Task 3</title>
 </head>
 <body>
-
+	<?php
+		require 'connect.php';
+	?>
 	<?php
 		$folder="uploads/";
 		$fname=$_FILES["uploadfile"]["name"];
@@ -13,8 +15,9 @@
 		$ftype=$_FILES["uploadfile"]["type"];
 		$ext=strtolower(substr($fname, strpos($fname, '.')+1));
 		$file=$folder.basename($fname);
-
 		$flag=1;
+
+		$data_dir="INSERT INTO upload_details(file_dir) VALUES ('$file')";
 
 		if(isset($fname))
 		{
@@ -49,22 +52,27 @@
 				$flag=0;
 			}
 
-		if($flag){
-			if(move_uploaded_file($_FILES["uploadfile"]["tmp_name"], $file)){
-				echo "File was uploaded succesfully";
-			}
-			else{
-				echo "Sorry there was an error in uploading. Please try again.";
-			}
-		}	
-		else
-		{
-			echo '';
-		}
-		}
+			if($flag){
+				if(move_uploaded_file($_FILES["uploadfile"]["tmp_name"], $file)){
 
-		
+					mysqli_query($connect,$data_dir);
+					header("Location:uploaded.php");
+				}
+				else{
+					echo "Sorry there was an error in uploading. Please try again.";
+				}
+			}	
+			else{
+				echo '';
+			}
+		}
 	?>
+	<?php /*
+	$myfile = fopen("", "r") or die("Unable to open file!");
+	echo fread($myfile,filesize(""));
+	fclose($myfile);
+	*/
+	?> 
 
 	<form action="task3.php" method="POST" enctype="multipart/form-data">
 		Select file to upload:
