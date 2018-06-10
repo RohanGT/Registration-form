@@ -109,6 +109,7 @@ input:focus
 p
 {
     color:darkgrey;
+    text-align: center;
 }
 #register
 {
