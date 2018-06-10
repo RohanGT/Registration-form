@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Registration</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="container">
+        <div class="panel left">
+            <input type='text' name='teamname' placeholder="team name">
+            <input type='text' name='headname' placeholder="head name">
+            <input type="number" name="regno" min="150000000" max ="180000000" placeholder="registration no">
+            <input type="text" name="branch" placeholder="branch">   
+            <input type="number" name="semester" min="1" max ="8" placeholder="semester">
+        </div>
+        <div class ="divider"></div>
+        <div class="panel right">
+            <input type="text" name="institution" placeholder="institution" >
+            <input type="number" name="phone" min="1000000000" max="9999999999" placeholder="phone no">
+            <input type="email" name="email" placeholder="email">
+            
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                
+                <input id="browse-click" type="button" class="button" value="Browse files"/>
+                
+            
+            <p id="filename"></p>
+            <input type="submit" name="submit" id="submit">
+        </div>
+    </div>
+</body>
+
+<script>
+    textbody=document.getElementById("filename");
+    file=document.getElementById("fileToUpload");
+    actualbutton=document.getElementById ("browse-click")
+    actualbutton.addEventListener ("click", function()
+    {
+        file.click();
+    });
+
+
+    setInterval (function()
+    {
+        textbody=document.getElementById("filename");
+        file=document.getElementById("fileToUpload");
+        console.log(file.value)
+        
+        if (file.value!="")
+            textbody.innerHTML=file.value;
+    }, 500);
+</script>
+</html>
