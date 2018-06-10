@@ -9,7 +9,7 @@ body
     height: 100%;
     width: 100%;
     background:url(bg3.jpg);
-    
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 5%;
     box-sizing: border-box;
@@ -18,30 +18,38 @@ body
 #container
 {
     background-color: white;
-    display: flex;
-    flex-direction: row;
     height:100%;
-    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+
 }
 
-.panel
+form
 {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    width:100%;
     height: 100%;
-    text-align: center;
-    width: 50%;
 
 }
+
+
 .divider
 {
     width: 1px;
     background-color: lightgrey;
-    height: 85%;
+    height: 70%;
     margin: auto;
+    position: absolute;
+    left: 50%;
+    top:15%;
+    z-index: 100;
 }
 
 input
@@ -51,8 +59,8 @@ input
     border-left: none;
     border-right: none;
     padding: 10px;
-    width: 40%;
-    margin: auto;
+    width: 20%;
+    margin: 20px;
     border-color:lightgrey;
     transition: border-color 1s;
 
@@ -73,6 +81,8 @@ input:focus
     color:white;
     transition: background-color 1s;
     border-radius: 10px;
+    width: 200px;
+    margin: 10px;
 }
 
 #submit:hover
@@ -87,11 +97,43 @@ input:focus
 }
 #browse-click
 {
-    width:30%;
+    width: 200px;
     margin: 0;
     border:none;
+    border-radius: 10px;
+}
+#filename
+{
+    width: 30%;
 }
 p
 {
     color:darkgrey;
+}
+#register
+{
+    
+    color: darkgrey;
+    font-size: 50px;
+    margin: 0;
+}
+@media only screen and (max-width: 1024px)
+{
+    #container
+    {
+        flex-direction: column;
+    }
+    .divider
+    {
+        display: none;
+    }
+    input
+    {
+        width: 40%;
+    }
+    html
+    {
+        height: 150%;
+        width:100%;
+    }
 }
