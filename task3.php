@@ -10,14 +10,14 @@
 	?>
 	<?php
 		$folder="uploads/";
-		$fname=$_FILES["uploadfile"]["name"];
-		$fsize=$_FILES["uploadfile"]["size"];
-		$ftype=$_FILES["uploadfile"]["type"];
+		@$fname=$_FILES["uploadfile"]["name"];
+		@$fsize=$_FILES["uploadfile"]["size"];
+		@$ftype=$_FILES["uploadfile"]["type"];
 		$ext=strtolower(substr($fname, strpos($fname, '.')+1));
 		$file=$folder.basename($fname);
 		$flag=1;
-
-		$data_dir="INSERT INTO upload_details(file_dir) VALUES ('$file')";
+		@$dir=realpath($file);
+		$data_dir="INSERT INTO upload_details(file_dir) VALUES ('$dir')";
 
 		if(isset($fname))
 		{
@@ -67,12 +67,6 @@
 			}
 		}
 	?>
-	<?php /*
-	$myfile = fopen("", "r") or die("Unable to open file!");
-	echo fread($myfile,filesize(""));
-	fclose($myfile);
-	*/
-	?> 
 
 	<form action="task3.php" method="POST" enctype="multipart/form-data">
 		Select file to upload:
