@@ -40,17 +40,6 @@ form
 }
 
 
-.divider
-{
-    width: 1px;
-    background-color: lightgrey;
-    height: 70%;
-    margin: auto;
-    position: absolute;
-    left: 50%;
-    top:15%;
-    z-index: 100;
-}
 
 input
 {
@@ -108,15 +97,14 @@ input:focus
 {
     cursor: pointer;
 }
-#filename
+#filename, #error
 {
     width: 30%;
-}
-p
-{
     color:darkgrey;
     text-align: center;
 }
+
+
 #register
 {
     

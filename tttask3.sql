@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2018 at 01:03 PM
+-- Generation Time: Jun 16, 2018 at 04:17 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -25,16 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `file`
---
-
-CREATE TABLE `file` (
-  `file` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `user`
 --
 
@@ -45,8 +35,9 @@ CREATE TABLE `user` (
   `branch` varchar(255) NOT NULL,
   `semester` int(11) NOT NULL,
   `institution` varchar(255) NOT NULL,
-  `phone` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL
+  `phone` bigint(10) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `file` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;
 
