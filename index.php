@@ -1,3 +1,18 @@
+
+
+<?php
+    global $error;
+    global $flag;
+    global $flag2;
+    require 'config.php';
+    require 'upload.php';
+    require 'form.php';
+    if (@$flag==1 && @$flag2==1)
+    {
+        header ("Location: success.php");
+    }
+
+    ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -21,9 +36,9 @@
             <input type="text" name="institution" placeholder="institution" required>
             <input type="number" name="phone" min="1000000000" max="9999999999" placeholder="phone no" required>
             <input type="email" name="email" placeholder="email" required>
-            <input type="file" name="fileToUpload" id="fileToUpload" required>
+            <input type="file" name="uploadfile" id="fileToUpload" required>
             <input id="browse-click" type="button" class="button" value="Browse files"/>
-            <p id="filename" style="height: 0px; margin: 0;"></p>
+            <p id="filename" style="height: 0px; margin: 0;"><?php echo  $error ?></p>
             <input type="submit" name="submit" id="submit" >
         </form>
        
