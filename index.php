@@ -30,7 +30,7 @@
             <p id="register">Register.</p>
             <input type='text' name='teamname' placeholder="team name" required >
             <input type='text' name='headname' placeholder="team leader" required>
-            <input type="number" name="regno" min="150000000" max ="180000000" placeholder="registration no" required title="Invalid">
+            <input type="number" name="regno" min="150000000" max ="180000000" placeholder="registration no" required >
             <input type="text" name="branch" placeholder="branch" required>   
             <input type="number" name="semester" min="1" max ="8" placeholder="semester" required>
             <input type="text" name="institution" placeholder="institution" required>
