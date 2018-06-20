@@ -1,6 +1,6 @@
 <?php
         require 'config.php';
-        $folder="uploads/";
+        $folder="uploads".DIRECTORY_SEPARATOR;
         @$fname=$_FILES["uploadfile"]["name"];
         @$fsize=$_FILES["uploadfile"]["size"];
         @$ftype=$_FILES["uploadfile"]["type"];
@@ -40,6 +40,9 @@
 
                 if(!(move_uploaded_file($_FILES["uploadfile"]["tmp_name"], $file)))
                     $error= "Sorry there was an error in uploading. Please try again.";
+
+               
+
                 
             }  
         }
