@@ -1,13 +1,11 @@
 <?php
-
         require 'config.php';
-        require 'form.php'
-        $folder="uploads".DIRECTORY_SEPARATOR;
+        $folder="uploads/";
         @$fname=$_FILES["uploadfile"]["name"];
         @$fsize=$_FILES["uploadfile"]["size"];
         @$ftype=$_FILES["uploadfile"]["type"];
         $ext=strtolower(substr($fname, strpos($fname, '.')+1));
-        $file=$folder.DIRECTORY_SEPARATOR.$regno.'.pdf';
+        $file=$folder.basename($fname);
         @$dir=realpath($file);
         $flag=1;
         if(isset($fname))
@@ -40,15 +38,8 @@
             }
             if($flag){
 
-                if(move_uploaded_file($_FILES["uploadfile"]["tmp_name"], $file)){
-                	if(is_readable($file) && is_uploaded ($file)){}
-                	else
-                		$error=" Sorry there was an error in uploading."
-                		$flag=0;
-                }
-
-               
-
+                if(!(move_uploaded_file($_FILES["uploadfile"]["tmp_name"], $file)))
+                    $error= "Sorry there was an error in uploading. Please try again.";
                 
             }  
         }

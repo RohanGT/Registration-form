@@ -1,19 +1,15 @@
 
 
 <?php
-    $_SESSION['allowed']=false; 
+    session_start();
 
     $error="";
     require 'config.php';
     require 'upload.php';
-    #require 'form.php';
+    require 'form.php';
     if (@$flag==1 && @$flag2==1)
     {
-        rename ('uploads'.DIRECTORY_SEPARATOR.basename($fname), 'uploads'.DIRECTORY_SEPARATOR.$regno.'.pdf');
-        #$file=$folder.DIRECTORY_SEPARATOR.$regno.'.pdf';
-        $dir=realpath($file);
-        $sql="INSERT INTO user VALUES ('$teamname','$headname','$regno','$branch','$semester','$institution','$phone','$email', '$dir')";
-
+        $sql="INSERT INTO user VALUES ('$teamname','$headname','$regno','$branch','$semester','$institution','$phone','$email', '$file')";
         if (mysqli_query($conn,$sql) )
             header ("Location: success.php");
     }
