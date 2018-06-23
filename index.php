@@ -2,15 +2,15 @@
 
 <?php
     $_SESSION['allowed']=false; 
-
+    $regno=0;
     $error="";
     require 'config.php';
     require 'upload.php';
-    require 'form.php';
+    #require 'form.php';
     if (@$flag==1 && @$flag2==1)
     {
         rename ('uploads'.DIRECTORY_SEPARATOR.basename($fname), 'uploads'.DIRECTORY_SEPARATOR.$regno.'.pdf');
-        $file=$folder.DIRECTORY_SEPARATOR.$regno.'.pdf';
+        #$file=$folder.DIRECTORY_SEPARATOR.$regno.'.pdf';
         $dir=realpath($file);
         $sql="INSERT INTO user VALUES ('$teamname','$headname','$regno','$branch','$semester','$institution','$phone','$email', '$dir')";
 
